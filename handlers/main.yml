@@ -1,0 +1,9 @@
+---
+- name: Export environment variables pointing to installation
+  blockinfile:
+    dest: "$HOME/.bashrc"
+    content: |
+      export OPENPANO_DIR={{openpano_download_dest}}/src
+    marker: "# {mark} OpenPano install location"
+    state: present
+  listen: "openpano vars"

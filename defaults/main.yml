@@ -1,0 +1,4 @@
+---
+openpano_mirror: "https://github.com/ppwwyyxx/panorama.git"
+
+openpano_download_dest: "{{ ansible_user_dir }}/panorama"

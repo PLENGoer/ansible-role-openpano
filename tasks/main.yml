@@ -1,0 +1,13 @@
+---
+- name: Check OpenPano installation status
+  stat:
+    path: "{{openpano_download_dest}}/src/image-stitching"
+    get_md5: no
+    get_checksum: no
+  register: installed_executable
+
+- include: Dependencies.yml
+  when: not installed_executable.stat.exists
+
+- include: BuildInstall.yml
+  when: not installed_executable.stat.exists

@@ -1,0 +1,15 @@
+---
+- name: OpenPano git repository
+  git:
+    repo: "{{ openpano_mirror }}"
+    dest: "{{ openpano_download_dest }}"
+    depth: 1
+    update: no
+    accept_hostkey: yes
+
+- name: Build
+  command: make -C src
+  args:
+    chdir: "{{ openpano_download_dest }}"
+  notify:
+    - "openpano vars"

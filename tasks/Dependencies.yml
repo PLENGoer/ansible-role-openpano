@@ -1,0 +1,12 @@
+---
+- name: Eigen
+  apt:
+    pkg: libeigen3-dev
+    state: present
+  become: yes
+
+- name: libjpeg
+  apt:
+    pkg: libjpeg-dev
+    state: present
+  become: yes
